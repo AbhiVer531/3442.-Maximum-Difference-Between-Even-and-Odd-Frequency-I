@@ -1,0 +1,14 @@
+class Solution:
+    from collections import Counter
+    def maxDifference(self, s: str) -> int:
+        mycounter = Counter(s)
+        maxodd = float('-inf')
+        mineven = float('inf')
+        for value in mycounter.values():
+            if value % 2 == 1: #odd
+                if maxodd < value:
+                    maxodd = value
+            else: #even
+                if mineven > value:
+                    mineven = value
+        return maxodd - mineven
